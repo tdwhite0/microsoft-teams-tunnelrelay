@@ -132,9 +132,9 @@ namespace TunnelRelay.Core
                 // Copy over outgoing headers.
                 foreach (string headerName in relayResponse.Headers.Keys)
                 {
-                    // Not copying over the Transfer-Encoding header as the communication between server and Relay, and Relay and client are
+                    // Not copying over the Transfer-Encoding or Keep-Alive headers as the communication between server and Relay, and Relay and client are
                     // different connections.
-                    if (headerName.Equals("Transfer-Encoding", StringComparison.OrdinalIgnoreCase))
+                    if (headerName.Equals("Transfer-Encoding", StringComparison.OrdinalIgnoreCase) || headerName.Equals("Keep-Alive", StringComparison.OrdinalIgnoreCase))
                     {
                         continue;
                     }
